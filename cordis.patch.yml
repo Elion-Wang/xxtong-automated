@@ -1,0 +1,32 @@
+# dsh-xxtong-automated 的 bundle patch。
+#
+# 只有一行：这个插件自己注册运行时技能（SKILL.md）、三个工具
+# （xxtong_profile / xxtong_plan / xxtong_preset）和一段系统提示。
+#
+# 它不启动常驻进程，也不占用 computer-use 的 provider 槽。真正驱动鼠标键盘的是
+# dsh-computer-use-windows 暴露的 computer_observe / computer_act；本插件负责
+# 「把一份作业答案翻译成可校验、可分批的动作计划」，并把学习通这套界面的
+# 坐标标定档与 preset-plus 预设一起带上。
+#
+# 想改这里的值：在 $DSH_HOME/profiles/<profile>/cordis.patch.yml 里用同一个 id
+# 重述整行。后写的 patch 会整体替换该行的 config，所以要把想保留的键全部写上。
+
+- insert:
+    - id: xxtong-automated
+      name: 'dsh-xxtong-automated'
+      config:
+        enabled: true
+        # 标定档 id，对应本包 profiles/*.json。默认是 2560x1600 的实测参考档；
+        # 换分辨率用 xxtong_profile 的 derive 动作派生一份，再写成 local-*.json。
+        profileId: example-2560x1600
+        # 一个动作批次里最多几个动作。必须 <= dsh-computer-use-windows 的
+        # maxActions（默认 25），超了整批会被拒。
+        maxActionsPerBatch: 25
+        # 一次计划最多生成几个批次，防止计划无限长。
+        maxBatches: 40
+        # 安全闸门：false 时 xxtong_plan 只生成“暂存”步骤，绝不生成提交步骤。
+        allowSubmitStep: false
+        # 是否注册运行时技能（读取包根目录的 SKILL.md）。
+        registerSkill: true
+        # 是否注入一段系统提示（提醒模型先看 SKILL.md、再动手）。
+        registerPrompt: true

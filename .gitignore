@@ -1,0 +1,26 @@
+# 依赖与构建产物
+node_modules/
+dist/
+*.tgz
+
+# 本机标定档与运行痕迹（这些是「你的机器」的数据，不要提交）
+profiles/local-*.json
+profiles/*.local.json
+trips/
+evidence/
+*.log
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 任何形式的密钥
+.env
+.env.*
+*.key
+*.pem
+*.token
+secrets.*

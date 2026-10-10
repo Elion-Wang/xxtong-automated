@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "id": "example-2560x1600",
+  "label": "学习通 PC 客户端 · 2560x1600 · 窗口最大化 · 实测参考档",
+  "measuredWith": {
+    "client": "学习通 PC 客户端（Electron / Chrome_WidgetWin_1）",
+    "screen": "2560x1600，窗口最大化（window rect 约 [-11,-11,2582,1550]）",
+    "capture": "computer_act 的 screenshot 是整屏截图，1600x1000",
+    "note": "所有坐标都是屏幕物理像素。截图坐标换算：physical = image × scale（scaleX = 2560/1600 = 1.6，scaleY = 1600/1000 = 1.6）。换机器/换分辨率请先跑 xxtong_profile 的 derive，再用 docs/CALIBRATION.md 的步骤复核。"
+  },
+  "window": {
+    "title": "学习通",
+    "class": "Chrome_WidgetWin_1"
+  },
+  "screen": {
+    "captureWidth": 1600,
+    "captureHeight": 1000,
+    "physicalWidth": 2560,
+    "physicalHeight": 1600
+  },
+  "sections": [
+    { "group": "judge", "title": "判断题", "from": 1, "to": 10 },
+    { "group": "short", "title": "简答题", "from": 11, "to": 13 },
+    { "group": "choice", "title": "单选题", "from": 14, "to": 23 }
+  ],
+  "content": {
+    "optionX": 560,
+    "optionY": { "A": 339, "B": 416, "C": 493, "D": 570 },
+    "stemY": 256,
+    "note": "点答题卡跳题后，题目固定落在这一组纵坐标上：题干 256，A 339 / B 416 / C 493 / D 570（每行间隔约 77）。"
+  },
+  "nav": {
+    "judge": { "cols": [1902, 1971, 2040, 2109, 2178], "rows": [339, 424] },
+    "short": { "cols": [1902, 1971, 2040], "rows": [594] },
+    "choice": { "cols": [1902, 1971, 2040, 2109, 2178], "rows": [760, 854] },
+    "note": "右侧答题卡数字按钮：判断题 1-10 两排，简答题 11-13 一排，单选题 14-23 两排（第二排 19-23 只在窗口够高时才出现，见 docs/CALIBRATION.md）。"
+  },
+  "buttons": {
+    "saveDraft": [2320, 149],
+    "submit": [2474, 149],
+    "note": "顶部栏右侧：「暂存」在左，「提交」在右。两者只差约 154px，点之前先截图确认。"
+  },
+  "editor": {
+    "clickX": 1120,
+    "clickYByNavIndex": [528, 528, 1184],
+    "fallbackClickY": 528,
+    "note": "简答题的富文本框位置随滚动变化：跳题后第 11、12 题的可编辑区中心约 528，第 13 题约 1184。不确定就先截图确认。"
+  },
+  "scroll": {
+    "pointX": 1100,
+    "pointY": 500,
+    "delta": -120,
+    "pixelsPerNotch": 124,
+    "note": "滚轮一档（delta -120）在本题页面约移动 124 物理像素；配合 960 高的可视区可按 5 档一屏推进。"
+  }
+}

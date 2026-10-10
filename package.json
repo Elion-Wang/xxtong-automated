@@ -1,0 +1,65 @@
+{
+  "name": "dsh-xxtong-automated",
+  "version": "0.1.0",
+  "description": "超星学习通作业自动化：把 Windows computer-use（结构化观察 + 坐标驱动 + 逐字符输入）与 preset-plus 预设合成一个 DSH 插件，一键导入即可驱动学习通 PC 客户端读题、作答、暂存。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./SKILL.md": "./SKILL.md",
+    "./README.md": "./README.md",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "src",
+    "profiles",
+    "presets",
+    "scripts",
+    "docs",
+    "test",
+    "SKILL.md",
+    "README.md",
+    "cordis.patch.yml",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {},
+  "scripts": {
+    "check": "node --check lib/index.js && node --check src/host/index.js && node --check src/host/tools.js && node --check src/host/layout.js && node --check src/host/preset.js && node --check src/host/config.js && node --check scripts/install-preset.mjs",
+    "test": "node --test",
+    "setup": "node scripts/install-preset.mjs --install",
+    "setup:dry": "node scripts/install-preset.mjs --dry-run"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "chaoxing",
+    "xxtong",
+    "超星",
+    "学习通",
+    "computer-use",
+    "automation",
+    "preset-plus"
+  ],
+  "author": "xxtong-automated contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elion-Wang/xxtong-automated.git"
+  },
+  "homepage": "https://github.com/Elion-Wang/xxtong-automated#readme",
+  "bugs": {
+    "url": "https://github.com/Elion-Wang/xxtong-automated/issues"
+  },
+  "license": "MIT"
+}
